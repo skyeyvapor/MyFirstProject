@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
+  
   # GET /events
   # GET /events.json
   def index
@@ -10,6 +11,7 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+    
   end
 
   # GET /events/new
@@ -62,6 +64,9 @@ class EventsController < ApplicationController
   end
 
   private
+    before_action :authenticate_member!, :except => [:index, :show] #make sure your callback methods are declared private or protected
+    #等同於before_action :authenticate_member!, :only => [:new, :edit, :create, :update, :destroy]
+    
     # Use callbacks to share common setup or constraints between actions.
     def set_event
       @event = Event.find(params[:id])

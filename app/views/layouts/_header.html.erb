@@ -1,4 +1,15 @@
 <header>
+	<nav id="sign_in">
+		<% if member_signed_in? %>
+		Signed in as <%= current_member.email %>:
+			<%= link_to "Sign out", destroy_member_session_path, :method => :delete %>
+			<!-- 查$rake routes，會看到/members/sign_out是傳送一個delete -->
+		<% else %>
+			<%= link_to "Sign up", new_member_registration_path %> or
+			<%= link_to "Sign in", new_member_session_path %>
+		<% end %>
+	</nav>
 	<h1>Asshtead Allotment's Association</h1>
 	<h2>Healthy and Body Balance</h2>
 </header>
+ 

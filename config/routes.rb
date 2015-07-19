@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :members
   resources :events #generate whole set of routes for events
   match '/index' => "aaa_core#index", via: :get
   #match '/events'=> "aaa_core#events", via: :get
