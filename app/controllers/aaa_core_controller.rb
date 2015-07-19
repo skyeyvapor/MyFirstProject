@@ -4,7 +4,7 @@ class AaaCoreController < ApplicationController
   end
 
   def events
-  	@title = "Events"
+  	#@title = "Events"
   end
 
   def shop
