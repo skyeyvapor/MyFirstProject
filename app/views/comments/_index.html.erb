@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+<!-- 要變partial要改名_index.html.erb -->
+<h1>Listing Comments for <%= event.title %></h1> <!-- 為了把event index變成partial，要把全部檔案裡從@event.title改成local value event.title --> <!-- 不再是reference of ，local variable is sign-in variable when we pass in to the partial-->
+
+<table>
+  <thead>
+    <tr>
+      <th>Event</th>
+      <th>Details</th>
+      <th>Author</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% comments.each do |comment| %> <!-- @comment no longer referencing a instance variable whose value is being abtained from the controller, now referencing a local variable from invocation of the partial-->
+      <tr>
+        <td><%= comment.event_id %></td>
+        <td><%= comment.details %></td>
+        <td><%= comment.author %></td>
+        <td><%= link_to 'Show', comment %></td>
+        <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
+        <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Comment', new_comment_path(event_id: event) %>
+<br>
+<button id="hide_comments">Hide Comments</button> <!-- Comments partial頁面裡有hide button -->

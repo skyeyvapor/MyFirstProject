@@ -15,5 +15,6 @@
   <%= @comment.author %>
 </p>
 
+<!-- comments show頁面，下面兩個超連結 --> <!-- edit, new, show的back都要改，include event_id -->
 <%= link_to 'Edit', edit_comment_path(@comment) %> |
-<%= link_to 'Back', comments_path %>
+<%= link_to 'Back', comments_path(event_id: @comment.event_id) %> <!-- 這裏有點問題，只改了List event的話，some of back are not working -->

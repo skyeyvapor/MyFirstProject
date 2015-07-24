@@ -1,10 +1,12 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
-
+  #在定義method時，Ruby會自動幫我們為method產生一個symbol
+  
   # GET /comments
   # GET /comments.json
   def index
-    @comments = Comment.all
+    @comments = Comment.where(event_id: params[:event_id]) #我們想list這Event的所有comments，Comment.all改成Comment.where
+    @event = Event.find(params[:event_id]) #我們也需要detail of event
   end
 
   # GET /comments/1
@@ -14,7 +16,12 @@ class CommentsController < ApplicationController
 
   # GET /comments/new
   def new
-    @comment = Comment.new
+    @comment = Comment.new(event_id: params[:event_id]) #收到從show.html.erb linke_to "new comment"傳來的參數，並
+    #show.html.erb裡<%= link_to 'New Comment', new_comment_path(event_id: @event) %>
+    #上面這段link變成http://localhost:3000/comments/new?event_id=1
+    #這裏的event_id是comment的foreign key：外來鍵是一個(或數個)指向另外一個表格主鍵的欄位。
+    #Rails 在設計上，form 是綁 model 的，因此整個 form 的內容會被包成一個 hash，在這裡就是 params[:post]？
+    #create action 初始一個 object ，並把 params[:post] 整包塞進這個 object 裡。
   end
 
   # GET /comments/1/edit

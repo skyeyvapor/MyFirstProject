@@ -13,7 +13,21 @@
 <p>
   <strong>Description:</strong>
   <%= @event.description %>
+  <%= link_to 'New Comment', new_comment_path(event_id: @event) %>
+  <!-- link到new_comment_path，並傳入(產生): :event_id => @event.id -->
+  <!-- event_id: @event會由comments_controller.rb的new method接收到 -->
+  <!-- 傳送時會傳送http://localhost:3000/comments/new?event_id=1 -->
+  <!-- 用了RESTful之後我們不寫link_to event.name, :controller => 'events', :action => :show , :id => event.id -->
+  <!-- 變成link_to event.name, event_path(event) ？這裡是@event還是event？ -->
 </p>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'List Comments', comments_path(event_id: @event) %> | <!-- 加了這行我們想看到關於這event的所有的comments -->
 <%= link_to 'Back', events_path %>
+
+<section id="comments"> <!-- 把comments頁面變成partial --> <!-- 要用jQuery要設section id -->
+	<%= render 'comments/index', comments: @comments, event: @event %> <!-- put associated value: comments and event-->
+</section>
+
+<button id="show_comments">Show Comments</button> <!-- 當 -->
+

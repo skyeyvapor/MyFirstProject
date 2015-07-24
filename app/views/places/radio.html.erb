@@ -2,14 +2,16 @@
 
 <p>
 	They take me away from</br>
-	<%= link_to "The strangest places", :action => "video" %>
+	<%= link_to "The strangest places", :action => "video" %> <!-- 會自動去找匹配的網頁 -->
+	<!-- 標準： link_to "", {:controller => "", :action => "" } -->
+	<!-- 會產生： a href="/controller/action">"" </a> --> 
 </p>
 
 <p>I'm on the radio</p>
 
 <p>
 	The time is now:
-	<%= @time %>
+	<%= @time %> <!-- 甚至routes.rb沒有調用controller的方法，Rails也會自動去找controller裡的方法 -->
 </p>
 
 <p>

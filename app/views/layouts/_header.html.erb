@@ -3,10 +3,17 @@
 		<% if member_signed_in? %>
 		Signed in as <%= current_member.email %>:
 			<%= link_to "Sign out", destroy_member_session_path, :method => :delete %>
+			<!--1. link_to是個view helper
+			 		2. 這裡省略了些括號：link_to("Sign out", destroy_member_session_path, { :method => :delete })
+			 		3. link_to想必define成如此： def link_to(name, path, option = {}) end
+			 		4. 其中{ :method => :delete }是個Hash，可簡寫為{method: :delete}
+			 		5. 最後一個參數(argument=actual parameter)如果是 Hash，大括號可省略 -->
 			<!-- 查$rake routes，會看到/members/sign_out是傳送一個delete -->
 		<% else %>
 			<%= link_to "Sign up", new_member_registration_path %> or
 			<%= link_to "Sign in", new_member_session_path %>
+			<!-- a href="/new">add fish</a> //適合外連 -->
+			<!-- %=# link_to "add fish", new_path %> 適合內連,格式為%=# link_to "連結名稱", 路徑_path %> -->
 		<% end %>
 	</nav>
 	<h1>Asshtead Allotment's Association</h1>

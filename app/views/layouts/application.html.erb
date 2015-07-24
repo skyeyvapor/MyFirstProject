@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= title %></title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+  <title><%= title %></title> <!-- title這可先去application_helper.rb去設個預設title -->
+  <%= stylesheet_link_tag    'application', media: 'all'  %> <!-- 可把'data-turbolinks-track' => true刪掉，js才會好 -->
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %> <!-- built-in Rails method防止"cross-site-requrest-forgery"攻擊 -->
 </head>
 <body>
 
 <%= render 'layouts/header' %>
 <%= render 'layouts/navigation' %>
-<%= yield %>
+<%= yield %> <!-- 個別的view file內容會被evaluated and inserted here -->
 <%= render 'layouts/footer' %>
 
 </body>

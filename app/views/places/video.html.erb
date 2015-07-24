@@ -2,7 +2,9 @@
 
 <p>
 	They take me away from</br>
-	<%= link_to "The strangest places", :action => "radio" %>
+	<%= link_to "The strangest places", :controller => "places", :action => "radio" %>
+	<!-- 按了link，用places Controller的radio Action，可省略:controller -->
+
 </p>
 
 <p>I'm on the video</p>

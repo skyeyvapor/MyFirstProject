@@ -10,11 +10,13 @@
       </ul>
     </div>
   <% end %>
-
+<!-- 不希望連過去comment頁面還讓使用者看到，可以選擇要comment的event
   <div class="field">
-    <%= f.label :event_id %><br>
-    <%= f.number_field :event_id %>
+    %= f.label :event_id %><br>
+    %= f.number_field :event_id %>
   </div>
+-->
+  <%= f.hidden_field :event_id %> <!-- 把event_id變成hidden_field -->
   <div class="field">
     <%= f.label :details %><br>
     <%= f.text_area :details %>
