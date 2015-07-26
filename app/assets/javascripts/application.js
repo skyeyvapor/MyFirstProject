@@ -10,6 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require modernizr-2.8.3
 //= require jquery
 //= require jquery_ujs
 //要把這行也註解掉不然會有問題不能留下＝ turbolinks

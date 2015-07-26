@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8"><!-- 指定UTF-8(8-bit Unicode Transformation Format)作為character encoding維持安全性跟穩定性，HTML5推薦-->
+	<!-- 對於ie9之前的，要用Javascript套件Modernizr-->
   <title><%= title %></title> <!-- title這可先去application_helper.rb去設個預設title -->
   <%= stylesheet_link_tag    'application', media: 'all'  %> <!-- 可把'data-turbolinks-track' => true刪掉，js才會好 -->
   <%= javascript_include_tag 'application' %>

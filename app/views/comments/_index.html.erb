@@ -13,7 +13,7 @@
   </thead>
 
   <tbody>
-    <% comments.each do |comment| %> <!-- @comment no longer referencing a instance variable whose value is being abtained from the controller, now referencing a local variable from invocation of the partial-->
+    <% comments.each do |comment| %> <!-- 原本@comment no longer referencing a instance variable whose value is being abtained from the controller, now referencing a local variable from invocation of the partial-->
       <tr>
         <td><%= comment.event_id %></td>
         <td><%= comment.details %></td>
