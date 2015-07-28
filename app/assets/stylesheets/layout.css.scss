@@ -1,0 +1,64 @@
+/*layout.css.scss要改成！！！
+*
+* Basic styling for the static pages
+* 要在application.css裡加上require layout
+*/
+
+@import 'site-branding'; /*不同於require*/
+
+
+body {
+	/*font-family: 'Times New Roman', 'Times', serif;*/
+	font-family: $body-font;
+}
+
+h1, h2 {
+	/*color: #333;
+	font-family: 'Verdana', 'Arial', 'Helvetica', sans-serif;*/
+	color: $near-black;
+	font-family: $heading-font;
+}
+
+h3 {
+	/*color: #50b450;
+	font: italic bold 20px 'Georgia', 'Times New Roman', serif;*/
+	color: $dark-green;
+	font: italic bold 20px $accent-font;
+}
+
+div#container {
+	display: block;
+	position: relative;
+	min-height: 1000px;
+	width: 1000px;
+	margin: 0 auto;
+	padding: 0;
+	background-color: $khaki;
+}
+
+header#page_header {
+	background-color: $mid-green;
+	text-align: center;
+	color: #FFFFFF;
+	padding: 10px 15px; /*課程這裡有錯誤*/
+}
+
+nav#utility{
+	float: right;
+	font-size: 1em;
+}
+
+section#main {
+	float: left;
+	width: 700px;
+	padding: 0 15px;
+}
+
+section#sidebar {
+	margin-left: 750px;
+	padding: 10px;
+}
+
+footer {
+	clear: left;
+}/*課程中會出現footer在不對的位置，所以要加這一段，但我的不會*/

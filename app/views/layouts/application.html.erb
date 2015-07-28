@@ -10,10 +10,20 @@
 </head>
 <body>
 
-<%= render 'layouts/header' %>
-<%= render 'layouts/navigation' %>
-<%= yield %> <!-- 個別的view file內容會被evaluated and inserted here -->
-<%= render 'layouts/footer' %>
+<div id="container"> <!-- 接著新增一個layout.css在stylesheet裡 -->
+
+	<%= render 'layouts/header' %>
+
+	<p class="notice"><%= notice %></p> <!-- 把會產生綠色小字的notice(內容在controller裡)放到這，記得p後面id改成class。(原本放在event comment) -->
+	<p class="alert"><%= alert %></p>
+
+	<%= render 'layouts/navigation' %>
+
+	<%= yield %> <!-- 個別的view file內容會被evaluated and inserted here -->
+
+	<%= render 'layouts/footer' %>
+
+</div>
 
 </body>
 </html>

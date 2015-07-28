@@ -12,5 +12,12 @@
  *
  *= require_self
  *= require normalize
+ *= require layout
+ *= require navigation
+ *= require events
  */
  /*從require_tree改成normalize*/
+ /*require_tree . 會pull所有在這asset folder底下的東西*/
+ /*require_self除了會pull這folder底下的css還會pull，所有asset下有關聯的css，最後compile在一起*/
+ /*normailize先，再layout*/
+ /*這檔案其實是個manifest*/

@@ -1,0 +1,26 @@
+/* Place all the styles related to the Events controller here.
+* They will automatically be included in application.css.
+* You can use Sass (SCSS) here: http://sass-lang.com/
+*/
+
+@import "site-branding";
+@import "popout";
+
+article#events {
+	padding-left: 20px;
+	section {
+		@include popout;
+		margin-left:20px;
+		margin-right: 100px;
+		padding: 20px;
+		background-color: #2EBB2E;
+			h1, h2 {
+				color: $white;
+				font-size: 20px;
+			} 
+	}
+}
+
+article#events section:nth-child(even){ /*這裏好像有點問題*/
+	background-color: #398F39;
+}
